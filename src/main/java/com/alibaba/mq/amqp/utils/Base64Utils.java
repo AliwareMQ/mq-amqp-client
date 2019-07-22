@@ -1,7 +1,6 @@
 package com.alibaba.mq.amqp.utils;
 
 import java.io.IOException;
-import java.util.Base64;
 
 import static com.alibaba.mq.amqp.constants.Constants.UTF8;
 
@@ -16,10 +15,6 @@ public class Base64Utils {
      * @return String decode from the input string
      */
     public static String decode(String str) {
-        return new String(Base64.getDecoder().decode(str.getBytes(UTF8)), UTF8);
-    }
-
-    public static String decodeV2(String str) {
         try {
             return new String(net.iharder.Base64.decode(str), UTF8);
         } catch (IOException e) {
@@ -34,10 +29,7 @@ public class Base64Utils {
      * @return     An Base64 string
      */
     public static String encode(String str) {
-        return new String(Base64.getEncoder().encode(str.getBytes(UTF8)), UTF8);
-    }
-
-    public static String encodeV2(String str) {
         return net.iharder.Base64.encodeBytes(str.getBytes(UTF8));
     }
+
 }

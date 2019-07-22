@@ -8,7 +8,7 @@ import static com.alibaba.mq.amqp.constants.Constants.UTF8;
 import static org.junit.Assert.assertEquals;
 
 /**
- * @author - chugang.cg
+ * @author - typeorigin
  * @create - 2019-07-19
  */
 public class Base64UtilsTest {

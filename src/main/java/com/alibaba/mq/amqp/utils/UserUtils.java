@@ -16,12 +16,12 @@ public class UserUtils {
      *
      * 用户根据ak和sk登录,获取用户名的方法
      * @param ak  aliyun 用户accesskey
-     * @param resourceOwnerId  接入点内的数字部分
+     * @param instanceId  实例化id 存量用户为resourceOwnerId
      * @return 返回用户名称
      */
-    public static String getUserName(String ak, long resourceOwnerId) {
+    public static String getUserName(String ak, String instanceId) {
         StringBuffer buf = new StringBuffer();
-        return Base64Utils.encode(buf.append(ACCESS_FROM_USER).append(":").append(resourceOwnerId).append(":")
+        return Base64Utils.encode(buf.append(ACCESS_FROM_USER).append(":").append(instanceId).append(":")
             .append(ak).toString());
     }
 
@@ -34,14 +34,14 @@ public class UserUtils {
      *
      *
      * @param ak  aliyun 用户accesskey
-     * @param resourceOwnerId 接入点内的数字部分
+     * @param instanceId  实例化id 存量用户为resourceOwnerId
      * @param stsToken       stsToken
      * @return 返回带stsToken的用户名称
      */
-    public static String getUserName(String ak, long resourceOwnerId, String stsToken) {
+    public static String getUserName(String ak, String instanceId, String stsToken) {
         StringBuffer buf = new StringBuffer();
         return Base64Utils.encode(buf.append(ACCESS_FROM_USER).
-            append(":").append(resourceOwnerId)
+            append(":").append(instanceId)
             .append(":").append(ak).append(":").
                 append(stsToken).toString());
     }
